@@ -1,0 +1,36 @@
+---
+
+import ExperienceItem from './ExperienceItem.astro'
+
+const EXPERIENCE = [
+    {
+        date: 'January 2023 - December 2023',
+        title: 'Developer & Systems Analyst - Arriero Agroinsumos',
+        description: 'I was in charge of developing a desktop application for the comprehensive management of company operations. I conducted a detailed information gathering through direct observation and dialogue with relevant teams. I proposed a reorganization of the business processes, which included the development of the corresponding process map.',
+        link: ''
+    },
+    {
+        date: 'July 2022 - December 2022',
+        title: 'Web Developer on a freelance project - Fit Manage ',
+        description: 'I was in charge of developing a custom web application requested by a gym. This application allows the organization to efficiently manage its daily operations, streamlining numerous tasks and achieving a significant reduction in the number of clients in arrears or with delays in the payment of their monthly fees.',
+        link: ''
+    },
+    {
+        date: 'March 2022 - December 2022',
+        title: 'Project Leader & Web Devoloper - LIFE UP',
+        description: '2022 was a year full of activity. During this period, I was hired by a gym to develop its web application, while at the same time, I earned my degree as a Systems Analyst at the "Universidad Tecnológica Nacional". For this purpose, with my team, we developed "LIFE UP," a web application designed for use in a medical specialty center. In this project, I not only performed coding tasks but also took on the role of Project Leader.',
+        link: ''
+    }
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
+    {
+        EXPERIENCE.map(experience => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }                  
+</ol>
+

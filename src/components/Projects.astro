@@ -1,0 +1,62 @@
+---
+import ReactIcon from '../components/icons/React.astro'
+import TailwindIcon from '../components/icons/Tailwind.astro'
+import ElectronIcon from '../components/icons/Electron.astro'
+import SassIcon from '../components/icons/Sass.astro'
+
+const TAGS = {
+    REACT: {
+        name: 'React',
+        class: 'bg-black',
+        icon: ReactIcon
+    },
+    TAILWIND: {
+        name: 'Tailwind CSS',
+        class: 'bg-black',
+        icon: TailwindIcon
+    },
+    ELECTRON: {
+        name: 'Electron',
+        class: 'bg-black',
+        icon: ElectronIcon
+    },
+    SASS: {
+        name: 'Sass',
+        class: 'bg-black',
+        icon: SassIcon
+    }
+}
+
+const PROJECTS = [
+    {
+        title: 'Arriero App - An application for the company "Arriero Agro Insumos"',
+        description: 'Developed with Electron + React. Designed to organize and streamline the daily operations of the "Arriero Agro Insumos" organization. It offers a wide range of functionalities, which support most of the information managed by the organization.',
+        link: '#',
+        github: '#',
+        image: '/projects/sh_arriero_1.webp',
+        tags: [TAGS.ELECTRON, TAGS.REACT, TAGS.SASS]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ title, description, image, tags }) => (
+        <article>
+            <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-4 flex-row ml-3">
+                {
+                    tags.map(tag => (
+                        <li>
+                            <span class={`flex gap-x-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] items-center shadow-xl shadow-black/10`}>
+                                <tag.icon class="size-6" /> 
+                                {tag.name}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+            <img class="rounded shadow-2xl shadow-black/10 mt-4" src={image} alt={`Screenshot of project ${title}`} />
+        </article>
+    ))
+}
