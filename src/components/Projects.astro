@@ -3,6 +3,13 @@ import ReactIcon from '../components/icons/React.astro'
 import TailwindIcon from '../components/icons/Tailwind.astro'
 import ElectronIcon from '../components/icons/Electron.astro'
 import SassIcon from '../components/icons/Sass.astro'
+import NodeIcon from '../components/icons/Node.astro'
+import GraphqlIcon from '../components/icons/Graphql.astro'
+import MongoIcon from '../components/icons/MongoDB.astro'
+import MaterialIcon from '../components/icons/Material.astro'
+import AngularIcon from '../components/icons/Angular.astro'
+import FirebaseIcon from '../components/icons/Firebase.astro'
+import BootstrapIcon from '../components/icons/Bootstrap.astro'
 
 const TAGS = {
     REACT: {
@@ -24,31 +31,82 @@ const TAGS = {
         name: 'Sass',
         class: 'bg-black',
         icon: SassIcon
+    },
+    NODE: {
+        name: 'Node.js',
+        class: 'bg-black',
+        icon: NodeIcon
+    },
+    GRAPHQL: {
+        name: 'GraphQL',
+        class: 'bg-black',
+        icon: GraphqlIcon
+    },
+    MONGO: {
+        name: 'MongoDB',
+        class: 'bg-black',
+        icon: MongoIcon
+    },
+    MATERIAL: {
+        name: 'Material UI',
+        class: 'bg-black',
+        icon: MaterialIcon
+    },
+    ANGULAR: {
+        name: 'Angular',
+        class: 'bg-black',
+        icon: AngularIcon
+    },
+    FIREBASE: {
+        name: 'Firebase',
+        class: 'bg-black',
+        icon: FirebaseIcon
+    },
+    BOOTSTRAP: {
+        name: 'Bootstrap',
+        class: 'bg-black',
+        icon: BootstrapIcon
     }
 }
 
 const PROJECTS = [
     {
-        title: 'Arriero App - An application for the company "Arriero Agro Insumos"',
-        description: 'Developed with Electron + React. Designed to organize and streamline the daily operations of the "Arriero Agro Insumos" organization. It offers a wide range of functionalities, which support most of the information managed by the organization.',
+        title: 'Arriero App - An app for the company "Arriero Agro Insumos"',
+        description: 'Developed with Electron + React. Designed to organize and streamline the daily operations of the "Arriero Agro Insumos" organization. It offers a wide range of functionalities, which support most of the information managed by the organization. ',
         link: '#',
         github: '#',
-        image: '/projects/sh_arriero_1.webp',
-        tags: [TAGS.ELECTRON, TAGS.REACT, TAGS.SASS]
+        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        tags: [TAGS.ELECTRON, TAGS.REACT, TAGS.SASS, TAGS.NODE, TAGS.GRAPHQL, TAGS.MONGO]
+    },
+    {
+        title: 'Fit Manage - An app for gym owners',
+        description: 'Developed with React, Fit Manage is designed to manage and control membership payments from gym clients. Its main objective is to facilitate financial administration by maintaining accurate payment records and helping to prevent or reduce payment delays, thereby decreasing the percentage of delinquent clients.',
+        link: '#',
+        github: '#',
+        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        tags: [TAGS.REACT, TAGS.MATERIAL, TAGS.NODE, TAGS.GRAPHQL, TAGS.MONGO]
+    },
+    {
+        title: 'LIFE UP - The app for my thesis project',
+        description: 'Developed with Angular, LIFE UP is designed for a medical specialty center. Its functionalities enable the organization to maintain records of its employees, patients, and their medical histories, schedule and notify appointments, among other essential functions. Additionally, it is designed to minimize keyboard usage for users, allowing them to perform various operations quickly and efficiently.',
+        link: '#',
+        github: '#',
+        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.NODE, TAGS.GRAPHQL, TAGS.FIREBASE]
     }
 ]
 ---
 
 {
     PROJECTS.map(({ title, description, image, tags }) => (
-        <article>
-            <h3 class="text-2xl font-semibold mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-4 flex-row ml-3">
+        <article class="relative ml-3">
+            <h3 class="text-xl font-semibold mb-2">{title}</h3>
+            <p class="text-base text-gray-500 mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-4 flex-wrap">
                 {
                     tags.map(tag => (
                         <li>
-                            <span class={`flex gap-x-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] items-center shadow-xl shadow-black/10`}>
+                            <span class={`flex flex-grap gap-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] items-center shadow-xl shadow-black/10`}>
                                 <tag.icon class="size-6" /> 
                                 {tag.name}
                             </span>
@@ -56,7 +114,32 @@ const PROJECTS = [
                     ))
                 }
             </ul>
-            <img class="rounded shadow-2xl shadow-black/10 mt-4" src={image} alt={`Screenshot of project ${title}`} />
+            <img class="rounded shadow-2xl shadow-black/10 mt-6 mb-12" src={image[0]} alt={`Screenshot of project ${title}`} />
         </article>
     ))
 }
+
+<style>
+    @keyframes show {
+        from {
+            opacity: 0;
+            scale: 25%;
+        }
+
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+
+    img {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+
+        animation-timeline: --image;
+        animation-name: show;
+
+        animation-range: entry 0% cover 30%;
+        animation-fill-mode: both;
+    }
+</style>

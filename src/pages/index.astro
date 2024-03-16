@@ -5,7 +5,7 @@ import Badge from '../components/Badge.astro'
 import LinkedInIcon from '../components/icons/LinkedIn.astro'
 import GitHubIcon from '../components/icons/GitHub.astro'
 import GmailIcon from '../components/icons/Gmail.astro'
-import BriefcaseIcon from '../components/icons/Briefcase.astro'
+import TieIcon from '../components/icons/Tie.astro'
 import CodeIcon from '../components/icons/Code.astro'
 import SocialPill from '../components/SocialPill.astro'
 import Experience from '../components/Experience.astro'
@@ -17,16 +17,21 @@ import Projects from '../components/Projects.astro'
 	description="Get in touch with me to create your ultimate web application. I'm a Web Developer and Systems Analyst specialized in crafting user-centric solutions..">
 	<main class="px-4">
 		
-		<SectionContainer class="py-44 pb-20">
-		<img class="rounded-full size-12 mb-4" src="../../public/perfilLeo.jpeg" alt="leandro photo" />
-		<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-			Hey, I'm Leandro! 
-			<a href="https://www.linkedin.com/in/leandro-alonso-work/"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="flex justify-center items-center"><Badge>Available for hire</Badge></a>
-		</h1>
-		<h2 class="text-xl text-wrap max-w-[700px]">With 2+ years of experience as a <span class="font-semibold">Web Developer</span> and <span class="font-semibold">Systems Analyst</span>.<br>
+		<SectionContainer class="py-44 pb-0">
+		<img class="rounded-full size-12 mb-4" src="/perfilLeo.jpeg" alt="leandro photo" />
+		<div class="relative w-[700px] h-[55px]">
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 frText">
+				Hey, I'm Leandro! 
+				<a href="https://www.linkedin.com/in/leandro-alonso-work/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex justify-center items-center"><Badge>Available for hire</Badge></a>
+			</h1>
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 bgText">
+				Hey, I'm Leandro! 
+			</h1>
+		</div>
+		<h2 class="text-l lg:text-xl text-wrap max-w-[700px]">With 2+ years of experience as a <span class="font-semibold">Web Developer</span> and <span class="font-semibold">Systems Analyst</span>.<br>
 			I'm from <span class="font-semibold">Córdoba</span>, <span class="font-semibold text-blue-300">Argentina</span> 🇦🇷.<br>
 			I specialize in crafting user-centric digital solutions.<br>
 			Let's turn your ideas into reality!
@@ -34,30 +39,30 @@ import Projects from '../components/Projects.astro'
 
 		<nav class="flex gap-4 mt-8 flex-wrap">
 				<SocialPill href="https://www.linkedin.com/in/leandro-alonso-work/">
-						<LinkedInIcon class="size-4 md:size-6" />
+						<LinkedInIcon class="size-5 md:size-6" />
 						LinkedIn
 				</SocialPill>
 				<SocialPill href="https://github.com/LeoAlonso20">
-						<GitHubIcon class="size-4 md:size-6" />
+						<GitHubIcon class="size-5 md:size-6" />
 						GitHub
 				</SocialPill>
 				<SocialPill href="mailto:alonsoleandrowork@gmail.com">
-					<GmailIcon class="size-4 md:size-6" />
+					<GmailIcon class="size-5 md:size-6" />
 					alonsoleandrowork@gmail.com
 			</SocialPill>
 			</nav>
 		</SectionContainer>
 		
 		<SectionContainer id="experience">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
-				<BriefcaseIcon class="size-7"/>
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center pt-20">
+				<TieIcon class="size-7"/>
 				Professional Experience
 			</h2>
 			<Experience />
 		</SectionContainer>
 
 		<SectionContainer id="projects">
-			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center pt-20">
 				<CodeIcon class="size-7"/>
 				Projects
 			</h2>
@@ -65,3 +70,22 @@ import Projects from '../components/Projects.astro'
 		</SectionContainer>
 	</main>
 </Layout>
+
+<style>
+	h1 {
+		position: absolute;
+		
+	}
+
+	.frText {
+		color: currentColor;
+		z-index: 2;
+	}
+
+	.bgText {
+		background-image: linear-gradient(to right, #D8BFD8, #CCCCFF, #93C5FD, #f56d84, #fab370, #FFDAB9, #FFA07A);
+		-webkit-background-clip: text;
+		color: transparent;
+		left: -3px
+	}
+</style>
