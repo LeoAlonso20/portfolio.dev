@@ -7,9 +7,11 @@ import GitHubIcon from '../components/icons/GitHub.astro'
 import GmailIcon from '../components/icons/Gmail.astro'
 import TieIcon from '../components/icons/Tie.astro'
 import CodeIcon from '../components/icons/Code.astro'
+import PersonIcon from '../components/icons/Person.astro'
 import SocialPill from '../components/SocialPill.astro'
 import Experience from '../components/Experience.astro'
 import Projects from '../components/Projects.astro'
+import AboutMe from '../components/AboutMe.astro'
 ---
 
 <Layout 
@@ -17,22 +19,22 @@ import Projects from '../components/Projects.astro'
 	description="Get in touch with me to create your ultimate web application. I'm a Web Developer and Systems Analyst specialized in crafting user-centric solutions..">
 	<main class="px-4">
 		
-		<SectionContainer class="py-44 pb-0">
-		<img class="rounded-full size-12 mb-4" src="/perfilLeo.jpeg" alt="leandro photo" />
+		<SectionContainer id="home" class="py-44 pb-0">
+		<img loading="lazy" class="rounded-full size-24 mb-4" src="/phColor.webp" alt="leandro photo" />
 		<div class="relative w-[700px] h-[55px]">
 			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 frText">
-				Hey, I'm Leandro! 
+				Hi, I'm Leandro! 
 				<a href="https://www.linkedin.com/in/leandro-alonso-work/"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="flex justify-center items-center"><Badge>Available for hire</Badge></a>
 			</h1>
 			<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10 bgText">
-				Hey, I'm Leandro! 
+				Hi, I'm Leandro! 
 			</h1>
 		</div>
-		<h2 class="text-l lg:text-xl text-wrap max-w-[700px]">With 2+ years of experience as a <span class="font-semibold">Web Developer</span> and <span class="font-semibold">Systems Analyst</span>.<br>
-			I'm from <span class="font-semibold">Córdoba</span>, <span class="font-semibold text-blue-300">Argentina</span> 🇦🇷.<br>
+		<h2 class="text-l lg:text-xl text-wrap max-w-[700px] mt-2 lg:mt-8"><span class="font-semibold">Frontend Developer</span> & <span class="font-semibold">Systems Analyst</span>.<br></h2>
+		<h2 class="text-l lg:text-xl text-wrap max-w-[700px] mt-2 lg:mt-8">
 			I specialize in crafting user-centric digital solutions.<br>
 			Let's turn your ideas into reality!
 		</h2>
@@ -68,6 +70,14 @@ import Projects from '../components/Projects.astro'
 			</h2>
 			<Projects />
 		</SectionContainer>
+
+		<SectionContainer id="about">
+			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center pt-20">
+				<PersonIcon class="size-7"/>
+				About Me
+			</h2>
+			<AboutMe />
+		</SectionContainer>
 	</main>
 </Layout>
 
@@ -88,4 +98,21 @@ import Projects from '../components/Projects.astro'
 		color: transparent;
 		left: -3px
 	}
+
+	@media (max-width: 768px) {
+        .bgText {
+            left: -2px;
+        }
+    }
+
+	/* img.rounded-full {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); 
+    transition: box-shadow 0.3s ease;
+	cursor: pointer;
+	}
+
+	img.rounded-full:hover {
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+	} */
+
 </style>

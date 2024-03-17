@@ -67,5 +67,26 @@ const { description, title } = Astro.props;
 		background-color: black;
 		color: white;
 	}
+
+	/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilos para el riel de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #fff; /* Color de fondo */
+}
+
+/* Estilos para el pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+    background: #3a3f4b;
+    border-radius: 5px; /* Borde redondeado del pulgar */
+}
+
+/* Estilos para el pulgar de la barra de desplazamiento al hacer hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #13151a;
+}
 	
 </style>

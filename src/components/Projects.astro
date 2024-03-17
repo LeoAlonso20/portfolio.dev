@@ -10,6 +10,7 @@ import MaterialIcon from '../components/icons/Material.astro'
 import AngularIcon from '../components/icons/Angular.astro'
 import FirebaseIcon from '../components/icons/Firebase.astro'
 import BootstrapIcon from '../components/icons/Bootstrap.astro'
+import GeneralPill from '../components/GeneralPill.astro'
 
 const TAGS = {
     REACT: {
@@ -106,20 +107,24 @@ const PROJECTS = [
                 {
                     tags.map(tag => (
                         <li>
-                            <span class={`flex flex-grap gap-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] items-center shadow-xl shadow-black/10`}>
-                                <tag.icon class="size-6" /> 
-                                {tag.name}
-                            </span>
+                           <GeneralPill tag={tag} /> 
                         </li>
                     ))
                 }
             </ul>
-            <img class="rounded shadow-2xl shadow-black/10 mt-6 mb-12" src={image[0]} alt={`Screenshot of project ${title}`} />
+            <img loading="lazy" class="rounded shadow-2xl shadow-black/10 mt-6 mb-12" src={image[0]} alt={`Screenshot of project ${title}`} />
         </article>
     ))
 }
 
 <style>
+
+    h3 {
+            background-image: linear-gradient(to right, #D8BFD8, #CCCCFF, #93C5FD, #f56d84, #fab370, #FFDAB9, #FFA07A);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
     @keyframes show {
         from {
             opacity: 0;
