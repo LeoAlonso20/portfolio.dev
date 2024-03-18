@@ -1,10 +1,10 @@
 <header id="main-header" class="fixed top-0 left-0 right-0 flex justify-center font-semibold items-center py-5 w-full xl:w-[1120px] mx-auto transition z-50">
     <nav class="flex flex-row gap-x-10 opacity-90">
         <a href="#home" class="hover:text-[#D8BFD8] transition">Home</a>
-        <a href="#experience" class="hover:text-[#CCCCFF] transition">Experience</a>
-        <a href="#projects" class="hover:text-[#93C5FD] transition">Projects</a>
-        <a href="#about" class="hover:text-[#E74C3C] transition">About Me</a>
-        <a href="#contact" class="hover:text-[#FFA07A] transition">Contact</a>
+        <a href="#experience" class="hover:text-[#93C5FD] transition">Experience</a>
+        <a href="#projects" class="hover:text-[#E74C3C] transition">Projects</a>
+        <a href="#about" class="hover:text-[#FFA07A] transition">About Me</a>
+        <!-- <a href="#contact" class="hover:text-[#FFA07A] transition">Contact</a> -->
     </nav>
 </header>
 
@@ -12,16 +12,18 @@
     document.addEventListener("DOMContentLoaded", function() {
         const header = document.getElementById('main-header');
 
-        window.addEventListener("scroll", function() {
-            // Verifica la posición de desplazamiento
-            if (window.scrollY > 0) {
-                // Si el usuario ha hecho scroll, agrega una clase al header
-                header.classList.add('scrolled');
-            } else {
-                // Si el usuario está en la parte superior de la página, quita la clase
-                header.classList.remove('scrolled');
-            }
-        });
+        if (header) {
+            window.addEventListener("scroll", function() {
+                // Verifica la posición de desplazamiento
+                if (window.scrollY > 0) {
+                    // Si el usuario ha hecho scroll, agrega una clase al header
+                    header.classList.add('scrolled');
+                } else {
+                    // Si el usuario está en la parte superior de la página, quita la clase
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
     });
 </script>
 

@@ -76,7 +76,7 @@ const PROJECTS = [
         description: 'Developed with Electron + React. Designed to organize and streamline the daily operations of the "Arriero Agro Insumos" organization. It offers a wide range of functionalities, which support most of the information managed by the organization. ',
         link: '#',
         github: '#',
-        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        images: ['/projects/sh_1_arriero.webp', '/projects/sh_2_arriero.webp', '/projects/sh_3_arriero.webp', '/projects/sh_4_arriero.webp'],
         tags: [TAGS.ELECTRON, TAGS.REACT, TAGS.SASS, TAGS.NODE, TAGS.GRAPHQL, TAGS.MONGO]
     },
     {
@@ -84,7 +84,7 @@ const PROJECTS = [
         description: 'Developed with React, Fit Manage is designed to manage and control membership payments from gym clients. Its main objective is to facilitate financial administration by maintaining accurate payment records and helping to prevent or reduce payment delays, thereby decreasing the percentage of delinquent clients.',
         link: '#',
         github: '#',
-        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        images: ['/projects/sh_1_fit.webp', '/projects/sh_2_fit.webp', '/projects/sh_3_fit.webp', '/projects/sh_4_fit.webp'],
         tags: [TAGS.REACT, TAGS.MATERIAL, TAGS.NODE, TAGS.GRAPHQL, TAGS.MONGO]
     },
     {
@@ -92,14 +92,14 @@ const PROJECTS = [
         description: 'Developed with Angular, LIFE UP is designed for a medical specialty center. Its functionalities enable the organization to maintain records of its employees, patients, and their medical histories, schedule and notify appointments, among other essential functions. Additionally, it is designed to minimize keyboard usage for users, allowing them to perform various operations quickly and efficiently.',
         link: '#',
         github: '#',
-        image: ['/projects/sh_arriero_1.webp', 'https://via.placeholder.com/200x300'],
+        images: ['/projects/sh_1_life.webp', '/projects/sh_2_life.webp', '/projects/sh_3_life.webp', '/projects/sh_4_life.webp'],
         tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.NODE, TAGS.GRAPHQL, TAGS.FIREBASE]
     }
 ]
 ---
 
 {
-    PROJECTS.map(({ title, description, image, tags }) => (
+    PROJECTS.map(({ title, description, images, tags }) => (
         <article class="relative ml-3">
             <h3 class="text-xl font-semibold mb-2">{title}</h3>
             <p class="text-base text-gray-500 mb-4 text-pretty">{description}</p>
@@ -112,7 +112,15 @@ const PROJECTS = [
                     ))
                 }
             </ul>
-            <img loading="lazy" class="rounded shadow-2xl shadow-black/10 mt-6 mb-12" src={image[0]} alt={`Screenshot of project ${title}`} />
+            <section class="flex gap-4 flex-wrap" style="overflow: hidden;">
+                <div class="carousel">
+                    {
+                        images.map((image, index) => (
+                            <img loading="lazy" class={`rounded shadow-2xl shadow-black/10 mt-6 mb-12 ${index === 0 ? 'active' : ''}`} src={image} alt={`Screenshot of project ${title}`} />
+                        ))
+                    }
+                </div>
+            </section>
         </article>
     ))
 }
@@ -147,4 +155,34 @@ const PROJECTS = [
         animation-range: entry 0% cover 30%;
         animation-fill-mode: both;
     }
+
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel img {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-right: 10px;
+    }
+
+    .carousel .active {
+        display: block;
+    }
 </style>
+
+<script>
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        let counter = 0;
+        const images = carousel.querySelectorAll('img');
+        const totalImages = images.length;
+
+        setInterval(() => {
+            images[counter].classList.remove('active');
+            counter = (counter + 1) % totalImages;
+            images[counter].classList.add('active');
+            (carousel as HTMLElement).style.transform = `translateX(-${counter * 100}%)`;
+        }, 3000);
+    });
+</script>
