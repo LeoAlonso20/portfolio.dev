@@ -13,7 +13,7 @@ const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -27,6 +27,13 @@ const { description, title } = Astro.props;
 		<Header />
 		<slot />
 		<Footer />
+		
+		<script>
+			// Detecta el modo oscuro del sistema y aplica la clase "dark" al <html> si está activado
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			  document.documentElement.classList.add('dark');
+			}
+		  </script>
 	</body>
 </html>
 <style is:global>

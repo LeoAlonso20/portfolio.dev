@@ -2,7 +2,7 @@
 const { tag } = Astro.props
 ---
 
-<span class={`flex flex-grap gap-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] items-center shadow-xl shadow-black/10`}>
-    <tag.icon class="size-6" /> 
+<span class={`flex flex-grap gap-2 rounded-full text-sm py-1 px-3 text-white bg-[#13151a] dark:text-black dark:bg-white items-center shadow-xl shadow-black/10`}>
+    <tag.icon class="size-6 dark:stroke-black" /> 
     {tag.name}
 </span>
